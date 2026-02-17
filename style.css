@@ -1336,3 +1336,157 @@ section:nth-child(even) {
         font-size: 20px !important;
     }
 }
+
+/* --- Mobile Optimization & White Space Tuning --- */
+@media (max-width: 768px) {
+
+    /* Global Section Spacing */
+    section {
+        padding: 60px 0;
+        /* Reduced from 140px */
+    }
+
+    .container {
+        padding: 0 20px;
+        /* More breathing room for content vs edge */
+    }
+
+    /* Typography Scaling */
+    h2.section-heading {
+        font-size: 32px;
+        /* Reduced from 56px */
+        letter-spacing: -1px;
+    }
+
+    .line-1,
+    .line-2 {
+        font-size: 42px;
+        /* Significantly reduced for mobile */
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .plain-p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Hero Section Adjustments */
+    .hero-content {
+        margin-top: 100px;
+        gap: 24px;
+    }
+
+    .feature-image-container {
+        margin-top: 40px;
+        padding: 12px;
+        border-radius: 24px;
+    }
+
+    /* Card & Grid Adjustments */
+    .glass-card {
+        padding: 24px;
+        /* Reduced padding inside cards */
+        border-radius: 24px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .ulcer-grid,
+    .dietary-roadmap,
+    .cards-grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+
+    /* Navigation & Header */
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .logo svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .btn-book-small {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    /* Utility Spacing */
+    .mt-80 {
+        margin-top: 40px;
+    }
+
+    .mb-80 {
+        margin-bottom: 40px;
+    }
+
+    .mt-60 {
+        margin-top: 32px;
+    }
+
+    .p-48 {
+        padding: 24px;
+    }
+
+    /* Buttons */
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .btn-cta-primary,
+    .btn-cta-secondary {
+        width: 100%;
+        padding: 16px 24px;
+    }
+
+    /* Specific Component Fixes */
+    .hub-container {
+        grid-template-columns: 1fr;
+        /* Stack sidebar and content */
+    }
+
+    .hub-sidebar {
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+    }
+
+    .hub-tab {
+        white-space: nowrap;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .roadmap-step {
+        padding: 16px;
+        /* Compact roadmap items */
+    }
+
+    /* Horizontal Scroll Adjustments */
+    .cards-grid-horizontal-scroll {
+        gap: 16px;
+        padding-bottom: 24px;
+        /* Less bottom padding */
+    }
+
+    .featured-card {
+        min-width: 280px;
+        /* Reduced from 350px for smaller screens */
+        max-width: 280px;
+    }
+}

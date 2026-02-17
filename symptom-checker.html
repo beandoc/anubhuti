@@ -159,6 +159,46 @@
             cursor: pointer;
             text-decoration: underline;
         }
+
+        /* Mobile Optimization for Triage */
+        @media (max-width: 768px) {
+            .triage-container {
+                margin: 80px 20px 40px;
+                /* Reduced top margin */
+                min-height: auto;
+            }
+
+            .triage-card {
+                padding: 24px;
+                /* Reduced padding */
+                border-radius: 20px;
+            }
+
+            .step-heading {
+                font-size: 28px;
+                /* Smaller heading */
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+                /* Stack options */
+                gap: 12px;
+            }
+
+            .triage-option {
+                padding: 16px;
+            }
+
+            .result-icon {
+                font-size: 48px;
+            }
+
+            .action-btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+        }
     </style>
 </head>
 
