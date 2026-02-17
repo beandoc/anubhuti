@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symptom Triage | Anubhuti Gastro Clinic</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=outfit:wght@300;400;500;600;700&family=Instrument+Serif:italic@0;1&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Triage Specific Styles */
+        .triage-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            min-height: 60vh;
+        }
+
+        .triage-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 6px;
+            background: var(--med-blue);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .step-heading {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            color: var(--slate-dark);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .triage-option {
+            background: #fff;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .triage-option:hover {
+            border-color: var(--med-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.05);
+        }
+
+        .triage-option strong {
+            display: block;
+            font-size: 18px;
+            color: var(--slate-dark);
+            margin-bottom: 8px;
+        }
+
+        .triage-option p {
+            font-size: 14px;
+            color: var(--slate-muted);
+            line-height: 1.5;
+        }
+
+        /* Results */
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .result-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .badge-yellow {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .badge-green {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .action-btn {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 40px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-emergency {
+            background: #dc2626;
+            color: white;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-urgent {
+            background: #d97706;
+            color: white;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-routine {
+            background: var(--med-blue);
+            color: white;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3);
+        }
+
+        .back-btn {
+            margin-top: 24px;
+            background: none;
+            border: none;
+            color: var(--slate-muted);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <!-- SVG Logo Icon -->
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="12" fill="#E0F2FE" />
+                    <path
+                        d="M20 10C16.6863 10 14 12.6863 14 16V22C14 25.3137 16.6863 28 20 28H24C25.1046 28 26 27.1046 26 26V18C26 13.5817 22.4183 10 18 10H20Z"
+                        stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M20 28V30" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <div style="display: flex; flex-direction: column; line-height: 1;">
+                    <span class="logo-main" style="font-size: 24px; color: #0F172A;">ANUBHUTI</span>
+                    <span
+                        style="font-size: 10px; font-weight: 600; text-transform: uppercase; color: #64748B; letter-spacing: 1px;">Gastro
+                        & Liver Clinic</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="btn-book-small"
+                style="background: transparent; color: var(--slate-dark); border: 1px solid var(--border-light);">✕ Exit
+                Triage</a>
+        </div>
+    </nav>
+
+    <div class="triage-container">
+        <div class="triage-card" id="triage-card">
+            <div class="progress-bar" id="progress"></div>
+
+            <!-- Step 1: Main Category -->
+            <div class="step-screen active" id="step-1">
+                <span class="eyebrow">Symptom Checker</span>
+                <h2 class="step-heading">What is your primary concern today?</h2>
+                <div class="option-grid">
+                    <div class="triage-option" onclick="nextStep('pain')">
+                        <strong>Abdominal Pain</strong>
+                        <p>Stomach ache, cramps, or sharp pain.</p>
+                    </div>
+                    <div class="triage-option" onclick="nextStep('bleeding')">
+                        <strong>Bleeding</strong>
+                        <p>Blood in stool, vomit, or black stools.</p>
+                    </div>
+                    <div class="triage-option" onclick="nextStep('bowel')">
+                        <strong>Bowel Changes</strong>
+                        <p>Diarrhea, constipation, or difficulty swallowing.</p>
+                    </div>
+                    <div class="triage-option" onclick="nextStep('weight')">
+                        <strong>General / Appearance</strong>
+                        <p>Weight loss, jaundice (yellow skin), or bloating.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Pain Drilldown -->
+            <div class="step-screen" id="step-pain" style="display: none;">
+                <span class="eyebrow">Detailed Assessment</span>
+                <h2 class="step-heading">Describe the pain severity and symptoms:</h2>
+                <div class="option-grid">
+                    <div class="triage-option" onclick="showResult('emergency-pain')">
+                        <strong>Severe + Fever</strong>
+                        <p>Unremitting pain with high fever (>101°F).</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('emergency-obstruction')">
+                        <strong>Swollen + Vomiting</strong>
+                        <p>Cannot pass gas/stool, belly is swollen, vomiting.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('urgent-pain')">
+                        <strong>Acute Indigestion</strong>
+                        <p>Burning upper belly pain, feeling full quickly.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('routine-pain')">
+                        <strong>Mild/Chronic</strong>
+                        <p>Occasional cramping or discomfort, no fever.</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="resetTriage()">← Start Over</button>
+            </div>
+
+            <!-- Step 2: Bleeding Drilldown -->
+            <div class="step-screen" id="step-bleeding" style="display: none;">
+                <span class="eyebrow">Bleeding Assessment</span>
+                <h2 class="step-heading">What does the bleeding look like?</h2>
+                <div class="option-grid">
+                    <div class="triage-option" onclick="showResult('emergency-vomit')">
+                        <strong>Vomiting Blood</strong>
+                        <p>Bright red or "coffee ground" texture.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('emergency-melena')">
+                        <strong>Black / Tarry Stool</strong>
+                        <p>Sticky, foul-smelling, jet black stool.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('emergency-rectal')">
+                        <strong>Heavy Rectal Bleeding</strong>
+                        <p>Significant bright red blood, possibly with clots.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('urgent-hemorrhoid')">
+                        <strong>Minor Spotting</strong>
+                        <p>Small amount on toilet paper, no pain.</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="resetTriage()">← Start Over</button>
+            </div>
+
+            <!-- Step 2: Bowel Drilldown -->
+            <div class="step-screen" id="step-bowel" style="display: none;">
+                <span class="eyebrow">Details</span>
+                <h2 class="step-heading">How long has this been happening?</h2>
+                <div class="option-grid">
+                    <div class="triage-option" onclick="showResult('urgent-swallow')">
+                        <strong>Difficulty Swallowing</strong>
+                        <p>Food getting stuck in chest or throat.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('urgent-diarrhea')">
+                        <strong>Nocturnal Diarrhea</strong>
+                        <p>Waking up from sleep to pass stool.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('urgent-change')">
+                        <strong>Change > 3 Days</strong>
+                        <p>New constipation/diarrhea lasting days.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('routine-ibs')">
+                        <strong>Chronic/Known IBS</strong>
+                        <p>Intermittent symptoms similar to past episodes.</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="resetTriage()">← Start Over</button>
+            </div>
+
+            <!-- Step 2: Weight/General Drilldown -->
+            <div class="step-screen" id="step-weight" style="display: none;">
+                <span class="eyebrow">General Health</span>
+                <h2 class="step-heading">Select the symptom that applies:</h2>
+                <div class="option-grid">
+                    <div class="triage-option" onclick="showResult('emergency-jaundice')">
+                        <strong>Yellow Skin/Eyes</strong>
+                        <p>Jaundice (yellowing) visible in eyes or skin.</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('urgent-weight')">
+                        <strong>Unexplained Weight Loss</strong>
+                        <p>Lost >10lbs without trying (diet/exercise).</p>
+                    </div>
+                    <div class="triage-option" onclick="showResult('routine-bloat')">
+                        <strong>Bloating</strong>
+                        <p>Feeling of fullness or gas after meals.</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="resetTriage()">← Start Over</button>
+            </div>
+
+
+            <!-- Result Screens -->
+            <div class="result-screen" id="result-emergency">
+                <div class="result-icon">🚨</div>
+                <span class="result-badge badge-red">Red Flag Symptom</span>
+                <h2>Seek Immediate Care</h2>
+                <p class="plain-p">Your symptoms suggest a potentially serious condition requiring urgent evaluation.
+                    Please go to the nearest Emergency Room or call emergency services.</p>
+                <a href="tel:112" class="action-btn btn-emergency">Call Emergency Services</a>
+                <br>
+                <button class="back-btn" onclick="resetTriage()">Check Another Symptom</button>
+            </div>
+
+            <div class="result-screen" id="result-urgent">
+                <div class="result-icon">⚠️</div>
+                <span class="result-badge badge-yellow">Priority Appointment</span>
+                <h2>Medical Evaluation Needed</h2>
+                <p class="plain-p">These symptoms require professional investigation soon. While likely not an
+                    emergency, delay could complicate treatment.</p>
+                <a href="#" class="action-btn btn-urgent">Book Priority Consult</a>
+                <br>
+                <button class="back-btn" onclick="resetTriage()">Check Another Symptom</button>
+            </div>
+
+            <div class="result-screen" id="result-routine">
+                <div class="result-icon">🥗</div>
+                <span class="result-badge badge-green">Routine Care</span>
+                <h2>Likely Manageable</h2>
+                <p class="plain-p">These symptoms are common and often managed with lifestyle changes. We recommend
+                    reading our care guides or booking a routine visit.</p>
+                <a href="patient-education.html" class="action-btn btn-routine">View Care Guides</a>
+                <br>
+                <button class="back-btn" onclick="resetTriage()">Check Another Symptom</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function nextStep(category) {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('progress').style.width = '50%';
+
+            // Hide all step 2 screens
+            document.querySelectorAll('.step-screen').forEach(el => {
+                if (el.id !== 'step-1') el.style.display = 'none';
+            });
+
+            // Show relevant step 2
+            const target = document.getElementById(`step-${category}`);
+            if (target) target.style.display = 'block';
+        }
+
+        function showResult(type) {
+            // Hide all steps
+            document.querySelectorAll('.step-screen').forEach(el => el.style.display = 'none');
+            document.getElementById('progress').style.width = '100%';
+
+            // Determine Result Type
+            let resultId = 'result-routine';
+            if (type.includes('emergency')) resultId = 'result-emergency';
+            else if (type.includes('urgent')) resultId = 'result-urgent';
+
+            // Show Result
+            document.getElementById(resultId).style.display = 'block';
+        }
+
+        function resetTriage() {
+            document.querySelectorAll('.result-screen').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.step-screen').forEach(el => el.style.display = 'none');
+            document.getElementById('step-1').style.display = 'block';
+            document.getElementById('progress').style.width = '0%';
+        }
+    </script>
+</body>
+
+</html>

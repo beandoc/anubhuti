@@ -17,281 +17,615 @@
 
 <body>
     <div id="app">
-        <!-- Hero Section -->
-        <header class="hero-section">
-            <video class="bg-video" autoplay loop muted playsinline>
-                <source
-                    src="https://assets.mixkit.co/videos/preview/mixkit-abstract-liquid-blue-background-40662-large.mp4"
-                    type="video/mp4">
-            </video>
+        <div class="emergency-banner">
+            <div class="container banner-flex">
+                <span><strong>Emergency Notice:</strong> If you have severe chest pain, heavy bleeding, or extreme pain,
+                    go to the nearest ER or call <strong>102/108</strong> immediately.</span>
+            </div>
+        </div>
 
-            <div class="glow-pill"></div>
+        <div class="app-wrapper">
+            <header class="hero-section">
+                <video class="bg-video" autoplay loop muted playsinline>
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-abstract-liquid-blue-background-40662-large.mp4"
+                        type="video/mp4">
+                </video>
 
-            <!-- Navbar -->
-            <nav class="navbar">
-                <div class="nav-left">
-                    <div class="logo">
-                        <span class="logo-main">ANUBHUTI</span>
+                <div class="glow-pill"></div>
+
+                <!-- Navbar -->
+                <nav class="navbar">
+                    <div class="nav-left">
+                        <a href="#" class="logo"
+                            style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                            <!-- SVG Logo Icon -->
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="12" fill="#E0F2FE" />
+                                <path
+                                    d="M20 10C16.6863 10 14 12.6863 14 16V22C14 25.3137 16.6863 28 20 28H24C25.1046 28 26 27.1046 26 26V18C26 13.5817 22.4183 10 18 10H20Z"
+                                    stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M20 28V30" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+                            </svg>
+                            <div style="display: flex; flex-direction: column; line-height: 1;">
+                                <span class="logo-main" style="font-size: 24px; color: #0F172A;">ANUBHUTI</span>
+                                <span
+                                    style="font-size: 10px; font-weight: 600; text-transform: uppercase; color: #64748B; letter-spacing: 1px;">Gastro
+                                    & Liver Clinic</span>
+                            </div>
+                        </a>
+                        <ul class="nav-links">
+                            <li class="has-dropdown">
+                                <a href="patient-education.html">Patient Education ▾</a>
+                                <div class="dropdown-menu">
+                                    <a href="patient-education.html#basics">GI Basics</a>
+                                    <a href="patient-education.html#conditions">Disease Library</a>
+                                    <a href="patient-education.html#procedures">Procedures & Prep</a>
+                                    <a href="patient-education.html#diet">Diet & Lifestyle</a>
+                                </div>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Resources ▾</a>
+                                <div class="dropdown-menu">
+                                    <a href="patient-education.html#podcasts">Podcasts</a>
+                                    <a href="patient-education.html#videos">Video Library</a>
+                                    <a href="patient-education.html#downloads">Toolkits & PDFs</a>
+                                </div>
+                            </li>
+                            <li><a href="#about-gi">About Us</a></li>
+                        </ul>
                     </div>
-                    <ul class="nav-links">
-                        <li><a href="#diagnostics">Diagnostics</a></li>
-                        <li><a href="#pathology">Pathology</a></li>
-                        <li><a href="#metabolism">Metabolism</a></li>
-                        <li><a href="#gut-health">Gut Health</a></li>
-                        <li><a href="#red-flags">Alerts</a></li>
+                    <div class="nav-right">
+                        <div class="search-bar-container" style="margin-right: 16px;">
+                            <input type="text" placeholder="Search..." class="global-search-input"
+                                style="padding: 10px 16px; border-radius: 20px; border: 1px solid rgba(80,80,80,0.1); background: rgba(255,255,255,0.8); color: var(--slate-dark); width: 140px; font-size: 14px;">
+                        </div>
+                        <button class="btn-portal" id="btn-portal">Patient Portal</button>
+                        <button class="btn-book" id="btn-book">Book Appointment</button>
+                        <button class="hamburger-btn" aria-label="Open Menu">☰</button>
+                    </div>
+                </nav>
+
+                <!-- Mobile Sidebar Overlay -->
+                <div class="sidebar-overlay" id="sidebar-overlay"></div>
+                <aside class="sidebar-menu" id="sidebar-menu">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">ANUBHUTI</span>
+                        <button class="close-btn" id="close-sidebar">×</button>
+                    </div>
+                    <ul class="sidebar-links">
+                        <li>
+                            <a href="patient-education.html">Patient Education</a>
+                            <ul class="sidebar-sublinks">
+                                <li><a href="patient-education.html#basics">• GI Basics</a></li>
+                                <li><a href="patient-education.html#conditions">• Disease Library</a></li>
+                                <li><a href="patient-education.html#procedures">• Procedures</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Resources</a>
+                            <ul class="sidebar-sublinks">
+                                <li><a href="patient-education.html#podcasts">• Podcasts</a></li>
+                                <li><a href="patient-education.html#videos">• Video Library</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#about-gi">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                </div>
-                <div class="nav-right">
-                    <button class="btn-portal" id="btn-portal">Patient Portal</button>
-                    <button class="btn-book" id="btn-book">Book Appointment</button>
-                </div>
-            </nav>
+                </aside>
 
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <div class="heading">
-                    <span class="line-1">Precision Care for.</span>
-                    <span class="line-2">Digestive Wellness.</span>
-                </div>
-                <div class="tagline">Anubhuti | Healing from within. Wellness for life.</div>
-                <p class="subtitle">
-                    India’s premier destination for advanced gastroenterology, combining world-class clinical expertise
-                    with a deeply personalized approach to patient care.
-                </p>
-                <div class="cta-group">
-                    <button class="btn-cta-primary">Request Consultation</button>
-                    <button class="btn-cta-secondary"
-                        onclick="document.getElementById('diagnostics').scrollIntoView({behavior: 'smooth'})">Explore
-                        Procedures</button>
-                </div>
-            </div>
-
-            <!-- Main Visual -->
-            <div class="feature-image-container">
-                <div class="glass-inner">
-                    <img src="/hero-light.png" alt="Doctor Consultation" class="hero-main-image">
-                </div>
-            </div>
-        </header>
-
-        <!-- Red Flags Section -->
-        <section class="red-flags-section" id="red-flags">
-            <div class="container">
-                <div class="section-intro">
-                    <span class="eyebrow">Critical Awareness</span>
-                    <h2 class="section-heading">When Symptoms Are <span class="highlight">Not Normal</span></h2>
-                    <p class="section-subtitle">Recognizing early warning signals is vital. If digestive discomfort
-                        persists or evolves, it may indicate an underlying condition requiring immediate attention.</p>
-                </div>
-                <div class="flags-grid">
-                    <div class="flag-card glass-card critical">
-                        <div class="flag-icon">!</div>
-                        <h4>Emergency Signs</h4>
-                        <ul class="flag-list">
-                            <li><strong>Hematemesis:</strong> Vomiting blood or coffee-ground material.</li>
-                            <li><strong>Melena:</strong> Black, tarry stools indicating internal bleeding.</li>
-                            <li><strong>Acute Pain:</strong> Sudden, severe abdominal intensity.</li>
-                        </ul>
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="heading">
+                        <span class="line-1">Precision Care for.</span>
+                        <span class="line-2">Digestive Wellness.</span>
                     </div>
-                    <div class="flag-card glass-card">
-                        <h4>Persistent Changes</h4>
-                        <ul class="flag-list">
-                            <li><strong>Bowel Habits:</strong> Shifts in frequency or consistency lasting >2 weeks.</li>
-                            <li><strong>Dysphagia:</strong> Sensation of food sticking or difficulty swallowing.</li>
-                            <li><strong>Unexplained Weight Loss:</strong> Losing weight without changes in diet.</li>
-                        </ul>
-                    </div>
-                    <div class="flag-card glass-card">
-                        <h4>Chronic Discomfort</h4>
-                        <ul class="flag-list">
-                            <li><strong>Nighttime Reflux:</strong> Heartburn that frequently disrupts sleep.</li>
-                            <li><strong>Visible Bloating:</strong> Constant abdominal pressure unrelated to food.</li>
-                            <li><strong>Persistent Nausea:</strong> Ongoing sickness linked to fatigue or pain.</li>
-                        </ul>
+                    <div class="tagline">Anubhuti | Healing from within. Wellness for life.</div>
+                    <p class="subtitle">
+                        Expert care for your food pipe, stomach, and liver. We turn complex science into simple healing
+                        steps.
+                    </p>
+                    <div class="cta-group">
+                        <button class="btn-cta-primary"
+                            onclick="document.getElementById('symptoms').scrollIntoView({behavior: 'smooth'})">I have a
+                            symptom</button>
+                        <button class="btn-cta-secondary"
+                            onclick="document.getElementById('specialties').scrollIntoView({behavior: 'smooth'})">I know
+                            my diagnosis</button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Stomach Pain Diagnostics -->
-        <section class="stomach-pain-section" id="diagnostics">
-            <div class="container">
-                <div class="pain-diagnostics-grid">
-                    <div class="pain-image-block">
-                        <div class="torso-visualization glass-card">
-                            <img src="/stomach-pain.png" alt="Abdominal Pain Localization" class="pain-img">
+                <!-- Main Visual -->
+                <div class="feature-image-container reveal">
+                    <div class="glass-inner">
+                        <img src="/gi_consultation_hq_1771338389050.png" alt="Clinical Excellence"
+                            class="hero-main-image">
+                    </div>
+                </div>
+            </header>
+
+            <!-- About Digestive System -->
+            <section class="about-gi-section" id="about-gi">
+                <div class="container">
+                    <div class="grid-2">
+                        <div class="anatomy-text reveal">
+                            <span class="eyebrow">The Basics</span>
+                            <h2 class="section-heading">Your <span class="highlight">Digestive System</span></h2>
+                            <p class="plain-p">Your digestive system (or "GI tract") is a group of organs that helps
+                                your body use food and drink. It turns food into fuel and removes waste as stool.</p>
+                            <ul class="anatomy-list">
+                                <li><strong>Food Pipe (Esophagus):</strong> The tube carrying food to your stomach.</li>
+                                <li><strong>Stomach:</strong> Uses acid to break food down.</li>
+                                <li><strong>Intestines:</strong> Where your body takes in nutrients.</li>
+                                <li><strong>Liver & Pancreas:</strong> Help make juices that digest food.</li>
+                            </ul>
+                        </div>
+                        <div class="anatomy-visual glass-card">
+                            <img src="/gut-health.png" alt="Digestive System Overview" class="full-img">
                         </div>
                     </div>
-                    <div class="pain-text-block">
-                        <span class="eyebrow">Diagnostic Mapping</span>
-                        <h2 class="section-heading">Decoding <span class="highlight">Stomach Pain</span></h2>
-                        <div class="info-content">
-                            <p>Stomach pain manifests in diverse ways—from constant aches to intermittent sharp cramps.
-                                The location and nature of the pain are key diagnostic indicators.</p>
-                        </div>
-                        <div class="pain-causes-grid">
-                            <div class="cause">
-                                <h5>Upper Abdomen</h5>
-                                <p>Often linked to <strong>Indigestion</strong>, <strong>Acid Reflux (GERD)</strong>, or
-                                    <strong>Ulcers</strong>.
+                </div>
+            </section>
+
+            <!-- Symptoms & Red Flags -->
+            <section class="symptoms-section" id="symptoms">
+                <div class="container">
+                    <div class="section-intro">
+                        <span class="eyebrow">Symptom Guide</span>
+                        <h2 class="section-heading">When to <span class="highlight">See a Doctor</span></h2>
+                    </div>
+
+                    <div class="emergency-guide glass-card critical-focus"
+                        style="position: relative; overflow: hidden;">
+                        <div class="grid-2" style="align-items: center;">
+                            <div>
+                                <div class="guide-header">
+                                    <div class="alert-icon">!</div>
+                                    <h3>Unsure about your symptoms?</h3>
+                                </div>
+                                <p class="plain-p" style="margin-bottom: 24px;">Don't guess with your health. Use our
+                                    <strong>Interactive Triage Tool</strong> to check if your symptoms require emergency
+                                    care, an urgent appointment, or routine management.
                                 </p>
+                                <a href="symptom-checker.html" class="btn-book"
+                                    style="background: var(--med-blue); border: none;">Start Symptom Check →</a>
                             </div>
-                            <div class="cause">
-                                <h5>Right Quadrant</h5>
-                                <p>Sudden sharp pain here may indicate <strong>Gallstones</strong> or inflammatory
-                                    biliary issues.</p>
-                            </div>
-                            <div class="cause">
-                                <h5>Lower Abdomen</h5>
-                                <p>Frequently associated with <strong>Constipation</strong> or infections.</p>
-                            </div>
-                            <div class="cause">
-                                <h5>General/Cramping</h5>
-                                <p>Often caused by <strong>Gas & Bloating</strong> or <strong>Gastrointestinal
-                                        Infections</strong>.</p>
+                            <div class="triage-preview" style="text-align: center;">
+                                <div class="glass-card"
+                                    style="background: rgba(255,255,255,0.9); display: inline-block; text-align: left; padding: 24px;">
+                                    <div
+                                        style="font-size: 12px; text-transform: uppercase; color: var(--slate-muted); margin-bottom: 8px;">
+                                        Triage Example</div>
+                                    <strong style="display: block; font-size: 18px; margin-bottom: 4px;">Black Tarry
+                                        Stools</strong>
+                                    <span class="badge-red"
+                                        style="padding: 4px 12px; background: #fee2e2; color: #dc2626; border-radius: 20px; font-size: 12px; font-weight: 700;">emergency</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="treatment-summary">
-                            <strong>Path to Relief:</strong> We combine lifestyle adjustments, targeted medication, and
-                            advanced procedures like Endoscopy.
+                    </div>
+
+                    <div class="flags-grid mt-60">
+                        <div class="flag-card glass-card">
+                            <h4>Belly (Abdominal) Pain</h4>
+                            <p>Most pain comes from gas or mild infection. See us if pain lasts for days, wakes you up
+                                at night, or causes weight loss.</p>
+                        </div>
+                        <div class="flag-card glass-card">
+                            <h4>Heartburn & Acid Reflux</h4>
+                            <p>A burning feeling in your chest. See us if it happens >2 times a week or if food feels
+                                stuck in your throat.</p>
+                        </div>
+                        <div class="flag-card glass-card">
+                            <h4>Bowel Changes</h4>
+                            <p>See a doctor if you have diarrhea or constipation for more than 2-3 weeks, or if you see
+                                any blood.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Liver Cirrhosis Comprehensive Guide -->
-        <section class="condition-guide-section" id="pathology">
-            <div class="container">
-                <div class="guide-grid">
-                    <div class="guide-text-content">
-                        <span class="eyebrow">Pathology Overview</span>
-                        <h2 class="section-heading">Understanding <span class="highlight">Liver Cirrhosis</span></h2>
-                        <div class="info-content">
-                            <p>Cirrhosis is a progressive condition where healthy liver tissue is systematically
-                                replaced by scar tissue, impeding vital functions.</p>
+            <!-- Indigestion (Dyspepsia) Guide -->
+            <section class="dyspepsia-section" id="dyspepsia">
+                <div class="container">
+                    <div class="section-intro">
+                        <span class="eyebrow">Understanding Indigestion</span>
+                        <h2 class="section-heading">Decoding <span class="highlight">Dyspepsia</span></h2>
+                        <p class="plain-p">Indigestion (Dyspepsia) isn't just one thing. It's a set of symptoms like
+                            feeling
+                            full too quickly, upper belly pain, or a burning sensation.</p>
+                    </div>
+
+                    <div class="grid-2 mt-60">
+                        <div class="glass-card">
+                            <h5>The "75% Rule"</h5>
+                            <p class="plain-p">Did you know? For 3 out of 4 people, the stomach looks normal on tests,
+                                but
+                                doesn't *work* right. This is called <strong>Functional Indigestion</strong>.</p>
+                            <p class="plain-p" style="font-size: 15px;">Even if tests are normal, the pain is real. We
+                                focus
+                                on calming your stomach's sensitivity.</p>
                         </div>
-                        <div class="guide-accordion">
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <h4>Clinical Progression</h4>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M6 9l6 6 6-6" />
-                                    </svg>
+                        <div class="glass-card critical-focus-subtle">
+                            <h5>Red Flags: Act Now</h5>
+                            <p class="plain-p" style="font-size: 16px;">See a doctor immediately for an Endoscopy if you
+                                notice any of these:</p>
+                            <ul class="anatomy-list-small">
+                                <li><strong>Weight Loss:</strong> Losing >5% of your weight without trying.</li>
+                                <li><strong>Difficulty Swallowing:</strong> Food feeling "stuck."</li>
+                                <li><strong>Constant Vomiting:</strong> Or seeing blood in vomit/stools.</li>
+                                <li><strong>Iron Deficiency:</strong> Low blood count (Anemia) you can't explain.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-80">
+                        <div class="glass-card p-48">
+                            <h4 class="mb-24">The Diagnostic Roadmap</h4>
+                            <div class="grid-3">
+                                <div class="roadmap-step">
+                                    <strong>Age Watch</strong>
+                                    <p>If you are <strong>60 or older</strong>, a camera test (Endoscopy) is usually the
+                                        first step to be safe.</p>
                                 </div>
-                                <div class="accordion-body">
-                                    <p>Scarring restricts flow via the portal vein, leading to <strong>Portal
-                                            Hypertension</strong>—a critical complication.</p>
+                                <div class="roadmap-step">
+                                    <strong>Germ Check</strong>
+                                    <p>If you are <strong>under 60</strong>, we usually start with a simple breath or
+                                        stool
+                                        test for H. pylori germs.</p>
+                                </div>
+                                <div class="roadmap-step">
+                                    <strong>Follow-up</strong>
+                                    <p>If symptoms persist for 3-6 months, we look deeper with scans or biopsies.</p>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <h4>Key Symptoms</h4>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M6 9l6 6 6-6" />
-                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Condition Hub: Modular Navigation -->
+            <section class="conditions-section" id="specialties">
+                <div class="container">
+                    <div class="section-intro reveal">
+                        <span class="eyebrow">The Condition Hub</span>
+                        <h2 class="section-heading">Expertise by <span class="highlight">Organ System</span></h2>
+                        <p class="plain-p">Select a category below to explore symptoms, treatments, and safety guides.
+                        </p>
+                    </div>
+
+                    <div class="hub-container mt-60">
+                        <!-- Hub Sidebar Tabs -->
+                        <div class="hub-sidebar">
+                            <button class="hub-tab active" data-target="stomach">Stomach & Acid</button>
+                            <button class="hub-tab" data-target="liver">Liver & Hepatitis</button>
+                            <button class="hub-tab" data-target="gallbladder">Gallbladder & Bile</button>
+                            <button class="hub-tab" data-target="bowel">Bowel & Digestion</button>
+                            <button class="hub-tab" data-target="advanced">Advanced Care</button>
+                        </div>
+
+                        <!-- Hub Content Area -->
+                        <div class="hub-main glass-card">
+                            <!-- Stomach Tab -->
+                            <div class="hub-pane active" id="stomach">
+                                <div class="grid-2">
+                                    <div class="ulcer-text-content">
+                                        <h3>Stomach Health & H. pylori</h3>
+                                        <p class="plain-p">H. pylori is a common germ that affects the stomach. While
+                                            often silent, it can cause pain, ulcers, or even more serious long-term
+                                            issues if left untreated.</p>
+                                        <div class="dietary-roadmap glass-card">
+                                            <div class="diet-column">
+                                                <h5 class="positive">The Tests</h5>
+                                                <ul>
+                                                    <li>Simple Breath Test</li>
+                                                    <li>Simple Stool Test</li>
+                                                    <li>(Blood tests are less reliable)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="diet-column">
+                                                <h5 class="negative">Warning Signs</h5>
+                                                <ul>
+                                                    <li>Persistent vomiting</li>
+                                                    <li>Unexplained weight loss</li>
+                                                    <li>Black or tarry stools</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-24">
+                                        <div class="glass-card critical-focus-subtle">
+                                            <h5>Treatment Roadmap</h5>
+                                            <p style="font-size:14px;">Treatment usually involves a 2-week course of 2-4
+                                                medicines. It's vital to finish the full course, even if you feel better
+                                                earlier. We re-test you 4 weeks later to ensure the germ is 100% gone.
+                                            </p>
+                                        </div>
+                                        <div class="mt-24 info-alert">
+                                            <strong>Pro Tip:</strong> If a family member had stomach cancer, you should
+                                            be tested for this germ.
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="accordion-body">
-                                    <ul class="symptom-bullets">
-                                        <li><strong>Early Signs:</strong> Fatigue, jaundice, weight loss.</li>
-                                        <li><strong>Advanced:</strong> Ascites, Encephalopathy, easy bruising.</li>
+                            </div>
+
+                            <!-- Liver Tab -->
+                            <div class="hub-pane" id="liver">
+                                <div class="grid-2">
+                                    <div>
+                                        <span class="eyebrow">Fatty Liver & Alcohol Care</span>
+                                        <h3>Liver Health & Recovery</h3>
+                                        <p class="plain-p">Your liver is your body's filter. Excessive alcohol or fat
+                                            can damage it, leading to swelling or scarring (Cirrhosis).</p>
+
+                                        <div class="dietary-roadmap glass-card mb-24"
+                                            style="background: rgba(2, 132, 199, 0.03);">
+                                            <div class="diet-column">
+                                                <h5 class="positive">Healing Steps</h5>
+                                                <ul>
+                                                    <li>150 mins brisk walking/week</li>
+                                                    <li>10-min "exercise snacks"</li>
+                                                    <li>More fruits & vegetables</li>
+                                                </ul>
+                                            </div>
+                                            <div class="diet-column">
+                                                <h5 class="negative">Strict No-Gos</h5>
+                                                <ul>
+                                                    <li>Alcohol (No safe limit)</li>
+                                                    <li>Tobacco / Smoking</li>
+                                                    <li>High Fructose & Sugar</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="complications-grid">
+                                        <div class="complication-card">
+                                            <strong>Why Quit Alcohol?</strong>
+                                            <p>Stopping entirely is the only way to prevent severe liver damage and the
+                                                risk of transplant.</p>
+                                        </div>
+                                        <div class="complication-card">
+                                            <strong>Belly Fluid (Paracentesis)</strong>
+                                            <p>A safe procedure to remove excess fluid from the abdomen to help you
+                                                breathe easier.</p>
+                                        </div>
+                                        <div class="complication-card">
+                                            <strong>Monitoring</strong>
+                                            <p>Contact us for fever, pain, or confusion (Brain Fog), as these can be
+                                                signs of infection.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gallbladder Tab -->
+                        <div class="hub-pane" id="gallbladder">
+                            <div class="grid-2">
+                                <div>
+                                    <h3>Gallstones & Duct Health</h3>
+                                    <p class="plain-p">Expert removal of stones and management of bile duct
+                                        blockages.
+                                    </p>
+                                    <ul class="anatomy-list">
+                                        <li><strong>Gallstones:</strong> Diagnosis and diet support.</li>
+                                        <li><strong>ERCP:</strong> Clearing the path in the common bile duct.</li>
                                     </ul>
                                 </div>
+                                <div class="glass-card p-24">
+                                    <h5>Prevention & Care</h5>
+                                    <p style="font-size:14px;">Daily exercise and healthy fats protect your
+                                        gallbladder.
+                                        If stones are removed, we guide you on life after surgery.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bowel Tab -->
+                        <div class="hub-pane" id="bowel">
+                            <div class="grid-2">
+                                <div>
+                                    <span class="eyebrow">IBD & Celiac Care</span>
+                                    <h3>Digestive Harmony</h3>
+                                    <p class="plain-p">Specialized care for Inflammatory Bowel Disease (IBD) and Celiac
+                                        disease (Gluten sensitivity).</p>
+                                    <div class="glass-card mb-24">
+                                        <h5>Understanding Celiac</h5>
+                                        <p style="font-size:14px;">Gluten (found in wheat, barley, rye) damages the
+                                            small intestine. Symptoms range from diarrhea to anemia.</p>
+                                        <ul class="anatomy-list-small mt-16">
+                                            <li><strong>The Test:</strong> Simple blood test followed by a biopsy for
+                                                confirmation.</li>
+                                            <li><strong>Treatment:</strong> A strict, lifelong gluten-free diet is the
+                                                only way to heal.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="glass-card">
+                                    <h5>IBD & Biological Therapy</h5>
+                                    <p style="font-size:14px;">Managing Crohn's and Ulcerative Colitis through modern
+                                        treatments focused on lasting remission and quality of life.</p>
+                                    <div class="info-alert mt-24">
+                                        <strong>Warning Signs:</strong> If a gluten-free diet doesn't improve your
+                                        symptoms, see your doctor immediately for further tests.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Care Tab -->
+                        <div class="hub-pane" id="advanced">
+                            <div class="grid-2">
+                                <div>
+                                    <h3>Advanced Clinical Care</h3>
+                                    <div class="glass-card mb-24">
+                                        <h5>GI Cancer Center</h5>
+                                        <p style="font-size:14px;">Early screening and evidence-based care for GI
+                                            tumors.</p>
+                                    </div>
+                                </div>
+                                <div class="glass-card">
+                                    <h5>Endocrine Tumors</h5>
+                                    <p style="font-size:14px;">Care for rare growths that affect your body's
+                                        hormones.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="guide-visual-content">
-                        <div class="glass-card visual-card">
-                            <img src="/cirrhosis-guide.png" alt="Cirrhosis Progression" class="guide-img">
+                </div>
+        </div>
+        </section>
+
+        <!-- Procedures -->
+        <section class="procedures-section" id="procedures">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="eyebrow">Diagnostic Tests</span>
+                    <h2 class="section-heading">Upper <span class="highlight">Endoscopy (EGD)</span></h2>
+                </div>
+
+                <div class="grid-2 mt-60 reveal">
+                    <div class="proc-info-block">
+                        <p class="plain-p">An <strong>Upper Endoscopy</strong> is a safe test that lets your doctor
+                            see inside your food pipe, stomach, and the start of your intestine using a small
+                            camera.</p>
+
+                        <div class="proc-checklist glass-card mt-32">
+                            <h5>How to Prepare</h5>
+                            <ul class="anatomy-list">
+                                <li><strong>Fasting:</strong> No food for 6 to 8 hours. You can drink clear water
+                                    until 2 hours before.</li>
+                                <li><strong>Medicines:</strong> Take your usual pills with a small sip of water,
+                                    <strong>unless</strong> they are for diabetes or blood thinning. Ask us first!
+                                </li>
+                                <li><strong>Support:</strong> You will be sleepy after, so have a friend or family
+                                    member ready to take you home.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="proc-safety-block">
+                        <div class="glass-card mb-24">
+                            <h5>Why is it done?</h5>
+                            <p class="plain-p">To find the cause of pain, weight loss, or trouble swallowing.
+                                Sometimes, we can also fix small problems during the test.</p>
+                        </div>
+
+                        <div class="glass-card critical-focus-subtle">
+                            <h5>Safety First</h5>
+                            <p class="plain-p">This is a very safe test. Before we start, our team will check your
+                                heart and blood to make sure you can handle the sleep medicine safely.</p>
+                            <span class="eyebrow">Common Risks</span>
+                            <p class="plain-p" style="font-size: 14px; opacity: 0.7;">Serious problems are very
+                                rare. The most common minor issues are a sore throat or feeling bloated for an hour.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-80">
+                    <div class="proc-card glass-card">
+                        <h4>Other Procedures</h4>
+                        <div class="grid-2">
+                            <div>
+                                <h5>Colonoscopy</h5>
+                                <p>A camera test for your large bowel. Requires a "prep" drink to clean your system
+                                    the day before.</p>
+                            </div>
+                            <div>
+                                <h5>FibroScan</h5>
+                                <p>A simple, painless scan of your liver. No needles involved.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Vitamin D & Liver Function -->
-        <section class="vitamin-d-section" id="metabolism">
+        <!-- Success Stories & Testimonials -->
+        <section class="testimonials-section" id="stories">
             <div class="container">
-                <div class="vitamin-grid">
-                    <div class="vitamin-visual-block">
-                        <div class="sun-metabolism-card glass-card">
-                            <div class="sun-glow"></div>
-                            <div class="metabolic-stats">
-                                <div class="m-stat">
-                                    <span class="m-label">Synthesis Path</span>
-                                    <span class="m-value">Liver (Calcidiol)</span>
-                                </div>
-                                <div class="m-stat">
-                                    <span class="m-label">Immune Impact</span>
-                                    <span class="m-value">High</span>
-                                </div>
-                            </div>
-                            <div class="visual-caption">Metabolic conversion of D3 within hepatic cells.</div>
+                <div class="section-intro reveal">
+                    <span class="eyebrow">Patient Voice</span>
+                    <h2 class="section-heading">Stories of <span class="highlight">Healing</span></h2>
+                </div>
+                <div class="grid-2 mt-60">
+                    <div class="glass-card reveal">
+                        <p class="testimonial-text">"I was yellow with jaundice and in severe pain due to bile duct
+                            stones. The <strong>ERCP</strong> procedure at Anubhuti was seamless. The stones were
+                            cleared in minutes, and I was back home the next day. Truly life-saving."</p>
+                        <div class="patient-info">
+                            <strong>- Mr. Rajesh K., Mumbai</strong>
+                            <span>Treated for Bile Duct Stones</span>
                         </div>
                     </div>
-                    <div class="vitamin-text-block">
-                        <span class="eyebrow">The Sunshine Synthesis</span>
-                        <h2 class="section-heading">Vitamin D: <span class="highlight">A Hepatic Priority</span></h2>
-                        <p class="section-subtitle">Beyond bone density, Vitamin D is fundamental to liver
-                            health—regulating fat metabolism, boosting immune defense, and preventing fibrosis
-                            progression.</p>
-
-                        <div class="vitamin-pillars">
-                            <div class="v-pillar">
-                                <strong>Inflammation Control</strong>
-                                <p>Potent anti-oxidative effects that shield hepatic cells from chronic damage.</p>
-                            </div>
-                            <div class="v-pillar">
-                                <strong>Metabolic Regulation</strong>
-                                <p>Assists the liver in processing and storing fats, critical for NAFLD prevention.</p>
-                            </div>
-                            <div class="v-pillar">
-                                <strong>Fibrosis Prevention</strong>
-                                <p>Evidence suggests optimal levels may slow the formation of fibrotic scar tissue.</p>
-                            </div>
-                        </div>
-
-                        <div class="source-alert">
-                            <strong>Maintenance Strategy:</strong> 15–30 mins of daily sunlight, D3-rich sources
-                            (Mackerel, Salmon), and monitored supplementation.
+                    <div class="glass-card reveal">
+                        <p class="testimonial-text">"Living with Crohn's Disease (IBD) made every day a struggle. After
+                            starting biological therapy here, I am finally in 100% remission. I have my life back."</p>
+                        <div class="patient-info">
+                            <strong>- Rahul S., Delhi</strong>
+                            <span>IBD Success Story</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gut Health Section -->
-        <section class="gut-health-section" id="gut-health">
+        <!-- Resources & Search Links -->
+        <section class="resources-section" id="resources">
             <div class="container">
-                <div class="gut-grid">
-                    <div class="gut-text-block">
-                        <span class="eyebrow">The Second Brain</span>
-                        <h2 class="section-heading">Nurturing Your <span class="highlight">Gut Health</span></h2>
-                        <p class="section-subtitle">Your microbiome is a vital ecosystem regulating energy, mood, and
-                            immune resilience.</p>
-                        <div class="habit-grid">
-                            <div class="habit-card glass-card">
-                                <h5>Dietary Balance</h5>
-                                <p>Prioritizing fiber and probiotics to enhance nutrient absorption.</p>
-                            </div>
-                            <div class="habit-card glass-card">
-                                <h5>Stress Resilience</h5>
-                                <p>Managing the gut-brain axis to prevent IBS triggers.</p>
-                            </div>
-                            <div class="habit-card glass-card">
-                                <h5>Restorative Sleep</h5>
-                                <p>Supporting natural digestive repair cycles.</p>
-                            </div>
-                            <div class="habit-card glass-card">
-                                <h5>Active Movement</h5>
-                                <p>Optimizing food transit and reducing pressure.</p>
-                            </div>
-                        </div>
+                <div class="section-intro reveal">
+                    <span class="eyebrow">Knowledge Center</span>
+                    <h2 class="section-heading">Learn & <span class="highlight">Prepare</span></h2>
+                </div>
+
+                <div class="grid-3 mt-60 reveal">
+                    <!-- Audio Podcasts -->
+                    <div class="glass-card resource-card">
+                        <div class="resource-icon">🎙️</div>
+                        <h5>Anubhuti Podcast</h5>
+                        <p>Listen to our specialists discuss the latest in gut health and diet.</p>
+                        <span class="placeholder-tag">Coming Soon: March 2026</span>
                     </div>
-                    <div class="gut-image-block">
-                        <div class="microbiome-visualization glass-card">
-                            <img src="/gut-health.png" alt="Microbiome Ecosystem" class="gut-img">
-                            <div class="label-overlay">Ecosystem Index: Optimal</div>
+
+                    <!-- Video Library -->
+                    <div class="glass-card resource-card">
+                        <div class="resource-icon">📺</div>
+                        <h5>Video Library</h5>
+                        <p>Watch step-by-step guides on how to prepare for your endoscopy or scan.</p>
+                        <span class="placeholder-tag">Under Construction</span>
+                    </div>
+
+                    <!-- Patient Guides -->
+                    <div class="glass-card resource-card">
+                        <div class="resource-icon">📄</div>
+                        <h5>Clinical Guides</h5>
+                        <p>Downloadable PDFs for diet charts and post-procedure recovery.</p>
+                        <ul class="anatomy-list-small mt-16">
+                            <li>Post-ERCP Care</li>
+                            <li>IBD Diet Chart</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card p-48 mt-80 reveal">
+                    <p class="plain-p mb-24"><strong>Clinical Disclaimer:</strong> This portal is for educational
+                        purposes only. It does not replace a professional clinical consultation. If you are experiencing
+                        an emergency, please visit the nearest hospital.</p>
+                    <div class="grid-2">
+                        <div>
+                            <h5>Trusted Learning</h5>
+                            <ul class="link-list">
+                                <li><a href="#" class="opacity-6">Gastro Health Basics</a></li>
+                                <li><a href="#" class="opacity-6">Advanced Liver Support</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Clinical Verification</h5>
+                            <p class="plain-p opacity-6">Updated: February 2026 by the Anubhuti Editorial Board.</p>
                         </div>
                     </div>
                 </div>

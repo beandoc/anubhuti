@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding IBD | Anubhuti Gastro Clinic</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=outfit:wght@300;400;500;600;700&family=Instrument+Serif:italic@0;1&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .article-hero {
+            padding: 180px 0 80px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--slate-dark);
+        }
+
+        .article-content h2 {
+            font-size: 32px;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            color: var(--slate-dark);
+            font-family: var(--font-heading);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 16px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--med-blue);
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            color: var(--slate-grey);
+        }
+
+        .article-content li {
+            margin-bottom: 16px;
+            color: var(--slate-grey);
+        }
+
+        .info-box {
+            background: rgba(2, 132, 199, 0.05);
+            border-left: 4px solid var(--med-blue);
+            padding: 24px;
+            margin: 40px 0;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .clinical-note {
+            font-size: 14px;
+            color: var(--slate-muted);
+            font-style: italic;
+            display: block;
+            margin-top: 8px;
+        }
+
+        .toc-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            margin-bottom: 40px;
+        }
+
+        .toc-card a {
+            display: block;
+            padding: 8px 0;
+            color: var(--med-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar glass-nav">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <!-- SVG Logo Icon -->
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="12" fill="#E0F2FE" />
+                    <path
+                        d="M20 10C16.6863 10 14 12.6863 14 16V22C14 25.3137 16.6863 28 20 28H24C25.1046 28 26 27.1046 26 26V18C26 13.5817 22.4183 10 18 10H20Z"
+                        stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M20 28V30" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <div style="display: flex; flex-direction: column; line-height: 1;">
+                    <span class="logo-main" style="font-size: 24px; color: #0F172A;">ANUBHUTI</span>
+                    <span
+                        style="font-size: 10px; font-weight: 600; text-transform: uppercase; color: #64748B; letter-spacing: 1px;">Gastro
+                        & Liver Clinic</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="patient-education.html">← Back to Library</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="index.html#book" class="btn-book-small">Book Consultation</a>
+        </div>
+    </nav>
+
+    <div class="article-hero">
+        <div class="container">
+            <span class="eyebrow">Patient Education Guide</span>
+            <h1 class="page-title">Inflammatory Bowel Disease (IBD)</h1>
+            <p class="page-subtitle">A comprehensive guide to Ulcerative Colitis and Crohn's Disease: Symptoms,
+                Diagnosis, and Care.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="article-content">
+
+                <div class="toc-card">
+                    <h4 style="margin-bottom:16px;">In this guide:</h4>
+                    <a href="#intro">1. The Difference: UC vs Crohn's</a>
+                    <a href="#symptoms">2. Key Symptoms</a>
+                    <a href="#diagnosis">3. How We Diagnose</a>
+                    <a href="#outlook">4. Prognosis & Care</a>
+                </div>
+
+                <div id="intro">
+                    <h2 class="section-heading-sm">Two Major Disorders</h2>
+                    <p>Inflammatory Bowel Disease (IBD) is a term for two conditions (Crohn's disease and ulcerative
+                        colitis) that are characterized by chronic inflammation of the gastrointestinal (GI) tract.
+                        Prolonged inflammation results in damage to the GI tract.</p>
+
+                    <div class="grid-2" style="gap: 32px; margin-top: 32px;">
+                        <div class="glass-card" style="padding: 24px;">
+                            <h3 style="margin-top:0;">Ulcerative Colitis (UC)</h3>
+                            <p>Affects <strong>only the colon (large intestine)</strong>. It causes long-lasting
+                                inflammation and ulcers (sores) in the innermost lining (mucosal layer) of the large
+                                intestine.</p>
+                        </div>
+                        <div class="glass-card" style="padding: 24px;">
+                            <h3 style="margin-top:0;">Crohn’s Disease (CD)</h3>
+                            <p>Can affect <strong>any part of the digestive tract</strong> from the mouth to the anus.
+                                It involves "transmural inflammation," meaning it can affect the entire thickness of the
+                                bowel wall, not just the lining.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="symptoms">
+                    <h2 class="section-heading-sm">Clinical Features: What You Feel</h2>
+                    <p>Symptoms can vary from mild to severe. They may develop gradually or come on suddenly, without
+                        warning.</p>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li><strong>Abdominal Pain:</strong> Often crampy, intermittent pain.</li>
+                        <li><strong>Chronic Diarrhea:</strong> Diarrhea that comes and goes, sometimes with visible
+                            blood.</li>
+                        <li><strong>Fatigue & Weight Loss:</strong> Feeling constantly tired or losing weight without
+                            trying.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Complications of Deep Inflammation (Crohn's Specific)</strong>
+                        <p>Because Crohn's disease affects the deep layers of the bowel wall ("Transmural
+                            Inflammation"), it can lead to:</p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Fistulas:</strong> Abnormal tunnels that connect the intestine to other organs
+                                or the skin.</li>
+                            <li><strong>Abscesses:</strong> Pockets of infection.</li>
+                        </ul>
+                    </div>
+
+                    <h3>Beyond the Gut (Extraintestinal Symptoms)</h3>
+                    <p>IBD is a whole-body disease. You might experience inflammatory symptoms elsewhere, such as:</p>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li>Arthritis or joint pain</li>
+                        <li>Eye redness or pain</li>
+                        <li>Skin rashes or sores</li>
+                        <li>Kidney stones or liver issues</li>
+                    </ul>
+                </div>
+
+                <div id="diagnosis">
+                    <h2 class="section-heading-sm">Diagnostic Evaluation</h2>
+                    <p>Our goal is to confirm the diagnosis, rule out other causes (like infections), and determine how
+                        severe the disease is. A correct diagnosis is the first step to the right treatment.</p>
+
+                    <h3>1. The Initial Workup</h3>
+                    <p>If you have compatible symptoms (pain, diarrhea, weight loss), we typically order:</p>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li><strong>Lab Tests:</strong> Blood tests to check for anemia (low blood count) and vitamin
+                            deficiencies (B12, D). Stool studies help rule out infections.</li>
+                        <li><strong>Imaging (CT/MRI Enterography):</strong> Special scans to look at the small bowel,
+                            which connects the stomach and colon.</li>
+                    </ul>
+
+                    <h3>2. The Gold Standard: Colonoscopy</h3>
+                    <p>To confirm Crohn's or Colitis, we usually perform a <strong>Ileocolonoscopy</strong>. This allows
+                        us to look inside the entire colon and the end of the small intestine (terminal ileum).</p>
+                    <p>During this procedure, we take small tissue samples (biopsies). The diagnosis is confirmed when
+                        we see specific signs of inflammation under the microscope.</p>
+                </div>
+
+                <div id="outlook">
+                    <h2 class="section-heading-sm">Prognosis & Long-Term Care</h2>
+                    <p>IBD is a chronic condition, meaning it is long-term. However, the course of the disease varies
+                        for everyone.</p>
+
+                    <div class="grid-2">
+                        <div>
+                            <strong>Active Disease vs. Remission</strong>
+                            <p>Most patients experience times when symptoms flare up (active disease) followed by times
+                                when symptoms disappear (remission). About 20% of patients experience prolonged
+                                remission after their first treatment.</p>
+                        </div>
+                        <div>
+                            <strong>Role of Surgery</strong>
+                            <p>While medicines have reduced the need for surgery, it is sometimes required to fix
+                                blocked bowels, abscesses, or complications. Surgery is not a failure; it is sometimes
+                                the best way to restore quality of life.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 60px; text-align: center;">
+                    <a href="index.html#book" class="btn-book"
+                        style="background: var(--med-blue); border: none; padding: 16px 48px;">Book an IBD Specialist
+                        Consultation</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">ANUBHUTI</div>
+                <p class="footer-copy">&copy; 2026 Anubhuti Gastroenterology. Excellence in Digestive Care.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

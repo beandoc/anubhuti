@@ -1,15 +1,14 @@
-// Anubhuti - Excellence in Digestive Care
-// Core Interactions & Dynamic Reveal System
+// Anubhuti - Official Clinical Interaction System
+// Focused on smooth navigation, readability, and content reveal
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Anubhuti Website Initialized');
+    console.log('Anubhuti Healthcare Platform Ready');
 
-    // Initial Hero Entrance
+    // 1. Initial Hero Reveal
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
         heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(40px)';
-
+        heroContent.style.transform = 'translateY(30px)';
         setTimeout(() => {
             heroContent.style.transition = 'all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
             heroContent.style.opacity = '1';
@@ -17,72 +16,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Advanced Scroll Reveal using Intersection Observer
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
+    // 2. High-Fidelity Scroll Reveal
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Unobserve after reveal for performance
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, revealOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Collect all elements intended for reveal
-    const sections = document.querySelectorAll('section');
-    const cards = document.querySelectorAll('.glass-card, .habit-card, .flag-card, .v-pillar');
-    const headings = document.querySelectorAll('.section-heading, .eyebrow, .subtitle');
-
-    const revealTargets = [...sections, ...cards, ...headings];
-
-    revealTargets.forEach((el, index) => {
-        el.classList.add('reveal');
-        // Stagger delay based on child position if needed
-        if (el.parentNode.classList.contains('grid-3') || el.parentNode.classList.contains('flags-grid')) {
-            el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+    const revealTargets = document.querySelectorAll('section, .glass-card, .alert-point, .anatomy-text, .section-heading');
+    revealTargets.forEach((target, index) => {
+        target.classList.add('reveal');
+        // Stagger logic for child elements if they are in a grid
+        if (target.classList.contains('alert-point')) {
+            target.style.transitionDelay = `${(index % 3) * 0.1}s`;
         }
-        revealObserver.observe(el);
+        revealObserver.observe(target);
     });
 
-    // Premium Smooth Scroll for Navigation
-    document.querySelectorAll('.nav-links a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
+    // 3. Health-Literacy Navigation (Smooth Scroll with Offset)
+    document.querySelectorAll('.nav-links a, .cta-group button').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            const targetId = trigger.getAttribute('href') || trigger.getAttribute('onclick')?.match(/'#(.*?)'/)?.[1];
+            if (!targetId || !targetId.startsWith('#')) return;
+
             const targetElement = document.querySelector(targetId);
-
             if (targetElement) {
-                const navHeight = 100;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                e.preventDefault();
+                const navHeight = 140; // Including emergency banner
+                const offset = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
             }
         });
     });
 
-    // Accordion Logic (Pathology Section)
+    // 4. Clinical Accordion (Simple Language)
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
         const header = item.querySelector('.accordion-header');
         header.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
 
-            // Close all items
+            // Auto-close others for focus
             accordionItems.forEach(i => {
                 i.classList.remove('active');
                 i.querySelector('.accordion-body').style.display = 'none';
             });
 
-            // Toggle clicked item
             if (!isActive) {
                 item.classList.add('active');
                 item.querySelector('.accordion-body').style.display = 'block';
@@ -90,40 +72,71 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax effect for the background video (subtle)
+    // 5. Parallax Video Optimization
+    let lastScroll = 0;
     window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
+        const currentScroll = window.pageYOffset;
         const video = document.querySelector('.bg-video');
-        if (video) {
-            video.style.transform = `translateY(${scrolled * 0.4}px)`;
+        if (video && Math.abs(currentScroll - lastScroll) > 5) {
+            video.style.transform = `translateY(${currentScroll * 0.25}px)`;
+            lastScroll = currentScroll;
+        }
+    }, { passive: true });
+
+    // 6. Condition Hub Tab Logic
+    const hubTabs = document.querySelectorAll('.hub-tab');
+    const hubPanes = document.querySelectorAll('.hub-pane');
+
+    hubTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-target');
+
+            // Update Tab States
+            hubTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Update Pane States
+            hubPanes.forEach(pane => {
+                pane.classList.remove('active');
+                if (pane.id === target) {
+                    pane.classList.add('active');
+                }
+            });
+
+            // Smooth Scroll into view on mobile
+            if (window.innerWidth <= 992) {
+                const hubContainer = document.querySelector('.hub-container');
+                window.scrollTo({
+                    top: hubContainer.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 7. Sidebar Toggling
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('sidebar-overlay');
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const closeBtn = document.getElementById('close-sidebar');
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    }
+
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', toggleSidebar);
+    if (overlay) overlay.addEventListener('click', toggleSidebar);
+
+    // 8. Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
     });
 });
-
-// Global Styles for reveals if not in CSS
-if (!document.getElementById('reveal-styles')) {
-    const style = document.createElement('style');
-    style.id = 'reveal-styles';
-    style.textContent = `
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: opacity, transform;
-        }
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .accordion-body {
-            display: none;
-            padding-bottom: 20px;
-            animation: slideDown 0.3s ease-out;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    `;
-    document.head.appendChild(style);
-}

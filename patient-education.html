@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Education Library | Anubhuti Gastro Clinic</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=outfit:wght@300;400;500;600;700&family=Instrument+Serif:italic@0;1&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Reusing Navbar with Search -->
+        <nav class="navbar glass-nav">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <!-- SVG Logo Icon -->
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="12" fill="#E0F2FE" />
+                        <path
+                            d="M20 10C16.6863 10 14 12.6863 14 16V22C14 25.3137 16.6863 28 20 28H24C25.1046 28 26 27.1046 26 26V18C26 13.5817 22.4183 10 18 10H20Z"
+                            stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M20 28V30" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                    <div style="display: flex; flex-direction: column; line-height: 1;">
+                        <span class="logo-main" style="font-size: 24px; color: #0F172A;">ANUBHUTI</span>
+                        <span
+                            style="font-size: 10px; font-weight: 600; text-transform: uppercase; color: #64748B; letter-spacing: 1px;">Gastro
+                            & Liver Clinic</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="patient-education.html" class="active">Patient Education ▾</a>
+                        <div class="dropdown-menu">
+                            <a href="#basics">GI Basics</a>
+                            <a href="#conditions">Disease Library</a>
+                            <a href="#procedures">Procedures & Prep</a>
+                            <a href="#diet">Diet & Lifestyle</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Resources ▾</a>
+                        <div class="dropdown-menu">
+                            <a href="#podcasts">Podcasts</a>
+                            <a href="#videos">Video Library</a>
+                            <a href="#downloads">Toolkits & PDFs</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-bar-container">
+                    <input type="text" placeholder="Search topics..." class="global-search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button class="btn-book-small">Book Now</button>
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <div class="container">
+                <span class="eyebrow">Knowledge First</span>
+                <h1 class="page-title">Patient Education <span class="highlight">Library</span></h1>
+                <p class="page-subtitle">Your comprehensive resource for understanding digestive health. Search for a
+                    topic or browse by category.</p>
+
+                <!-- Expanded Search Feature -->
+                <div class="library-search-hero mt-40">
+                    <input type="text" placeholder="e.g. 'IBS Diet', 'Colonoscopy Prep', 'Fatty Liver'..." />
+                    <button>Search</button>
+                </div>
+
+                <!-- Category Pills (Horizontal Scroll) -->
+                <div class="category-pills mt-60">
+                    <button class="pill active">All</button>
+                    <button class="pill">Basics & General</button>
+                    <button class="pill">Diet & Nutrition</button>
+                    <button class="pill">Liver Disease (MASLD)</button>
+                    <button class="pill">IBD & Colitis</button>
+                    <button class="pill">Procedures</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="library-content section-padding">
+            <div class="container">
+
+                <!-- Section: Basics -->
+                <div class="library-section mb-80">
+                    <h2 class="section-heading-sm mb-40">Basics & General</h2>
+                    <div class="cards-grid-3">
+                        <div class="glass-card education-card">
+                            <div class="card-badge">Basics</div>
+                            <h3>How Digestion Works</h3>
+                            <p>Learn the fundamentals of how your GI tract turns food into fuel and keeps you healthy.
+                            </p>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                        <div class="glass-card education-card">
+                            <div class="card-badge">Symptoms</div>
+                            <h3>Red Flags: When to Worry</h3>
+                            <p>Distinguish between routine indigestion and signs that require emergency care.</p>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                        <div class="glass-card education-card">
+                            <div class="card-badge">Screening</div>
+                            <h3>Colon Cancer Screening</h3>
+                            <p>Why screening at age 45 is the most powerful tool for prevention.</p>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Liver Focus (New Content) -->
+                <div class="library-section mb-80">
+                    <h2 class="section-heading-sm mb-40">Liver Health Focus</h2>
+                    <div class="cards-grid-horizontal-scroll">
+                        <!-- Alcoholic Hepatitis Article Card -->
+                        <div class="glass-card education-card featured-card">
+                            <div class="card-image-placeholder livery-gradient"></div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="badge-alert">Critical Care</span>
+                                    <span class="read-time">2 min read</span>
+                                </div>
+                                <h3>Alcoholic Hepatitis: Unraveling the Complexities</h3>
+                                <p>A serious liver condition caused by excessive alcohol. Learn about symptoms like
+                                    jaundice and the path to recovery through nutritional support and abstinence.</p>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </div>
+
+                        <!-- MASLD Card -->
+                        <div class="glass-card education-card featured-card">
+                            <div class="card-image-placeholder blue-gradient"></div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="badge-new">Updated Guidelines</span>
+                                    <span class="read-time">4 min read</span>
+                                </div>
+                                <h3>Metabolic Dysfunction (MASLD)</h3>
+                                <p>Formerly 'Fatty Liver'. Understanding how sugar and inactivity affect your liver
+                                    health and the "Exercise Snack" solution.</p>
+                                <a href="#" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                        <!-- Cirrhosis Card -->
+                        <div class="glass-card education-card featured-card">
+                            <div class="card-image-placeholder orange-gradient"></div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="badge-chronic">Chronic Care</span>
+                                    <span class="read-time">5 min read</span>
+                                </div>
+                                <h3>Living with Cirrhosis</h3>
+                                <p>Managing complications like Ascites and Portal Hypertension. Your guide to diet and
+                                    daily safety.</p>
+                                <a href="#" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: IBD & Crohn's (New Content) -->
+            <div class="library-section mb-80" id="ibd">
+                <h2 class="section-heading-sm mb-40">Chronic Conditions Focus (IBD)</h2>
+                <div class="cards-grid-horizontal-scroll">
+                    <!-- Full Guide Card -->
+                    <div class="glass-card education-card featured-card" style="min-width: 400px;">
+                        <div class="card-image-placeholder blue-gradient" style="height: 180px;"></div>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="badge-new" style="background:var(--med-blue); color:white;">Definitive
+                                    Guide</span>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                            <h3>Inflammatory Bowel Disease (IBD): The Complete Guide</h3>
+                            <p>Understanding the vital differences between Crohn's Disease and Ulcerative Colitis. From
+                                diagnosis to long-term remission.</p>
+                            <a href="ibd-care.html" class="read-more">Read Full Guide →</a>
+                        </div>
+                    </div>
+
+                    <!-- Symptoms Card -->
+                    <div class="glass-card education-card featured-card" style="min-width: 300px;">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="badge-alert" style="background:#fee2e2; color:#dc2626;">Symptoms</span>
+                            </div>
+                            <h3 style="font-size: 20px;">Red Flags in IBD</h3>
+                            <ul
+                                style="margin-bottom: 24px; font-size: 14px; color: var(--slate-muted); padding-left: 20px;">
+                                <li>Chronic intermittent diarrhea</li>
+                                <li>Weight loss & Fatigue</li>
+                                <li>Eye & Skin disorders</li>
+                            </ul>
+                            <a href="ibd-care.html#symptoms" class="read-more">See All Symptoms →</a>
+                        </div>
+                    </div>
+                    <!-- Diagnosis Card -->
+                    <div class="glass-card education-card featured-card" style="min-width: 300px;">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="badge-chronic" style="background:#dcfce7; color:#166534;">Diagnosis</span>
+                            </div>
+                            <h3 style="font-size: 20px;">How We Diagnose</h3>
+                            <p style="font-size: 14px; margin-bottom: 24px;">Why Colonoscopy with biopsy is the gold
+                                standard for distinguishing UC from Crohn's.</p>
+                            <a href="ibd-care.html#diagnosis" class="read-more">Learn about Tests →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Podcasts Section -->
+            <div class="library-section mb-80" id="podcasts">
+                <div class="flex-between mb-40">
+                    <h2 class="section-heading-sm">Anubhuti Conversations (Podcast)</h2>
+                    <a href="#" class="view-all">View All Episodes</a>
+                </div>
+                <div class="cards-grid-3">
+                    <div class="glass-card podcast-card">
+                        <div class="podcast-cover">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="podcast-info">
+                            <span class="episode-tag">Episode 1</span>
+                            <h3>The Silent Epidemic: Fatty Liver</h3>
+                            <p>Dr. Sharma discusses why lean people get fatty liver too.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card podcast-card">
+                        <div class="podcast-cover">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="podcast-info">
+                            <span class="episode-tag">Episode 2</span>
+                            <h3>Gut Feelings: Stress & IBS</h3>
+                            <p>Unpacking the brain-gut connection and holistic management.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card podcast-card">
+                        <div class="podcast-cover">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="podcast-info">
+                            <span class="episode-tag">Episode 3</span>
+                            <h3>Alcohol & The Liver</h3>
+                            <p>Real talk about "safe limits" and recovery myths.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">ANUBHUTI</div>
+                <p class="footer-copy">&copy; 2026 Anubhuti Gastroenterology. Excellence in Digestive Care.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>
