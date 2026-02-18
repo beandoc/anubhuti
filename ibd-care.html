@@ -146,8 +146,40 @@
         </div>
         <div class="nav-right">
             <a href="index.html#book" class="btn-book-small">Book Consultation</a>
+            <button class="hamburger-btn" aria-label="Open Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <span class="sidebar-title">ANUBHUTI</span>
+            <button class="close-btn" id="close-sidebar">×</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="patient-education.html">Patient Education</a>
+                <ul class="sidebar-sublinks">
+                    <li><a href="patient-education.html#basics">• GI Basics</a></li>
+                    <li><a href="patient-education.html#conditions">• Disease Library</a></li>
+                    <li><a href="patient-education.html#procedures">• Procedures</a></li>
+                    <li><a href="patient-education.html#diet">• Diet & Lifestyle</a></li>
+                </ul>
+            </li>
+            <li><a href="ibd-care.html" style="color: var(--med-blue);">IBD Care (Current)</a></li>
+            <li><a href="index.html#about-gi">About Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </aside>
 
     <div class="article-hero">
         <div class="container">
@@ -286,6 +318,8 @@
             </div>
         </div>
     </footer>
+    </footer>
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>

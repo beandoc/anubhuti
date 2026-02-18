@@ -227,8 +227,48 @@
             <a href="index.html" class="btn-book-small"
                 style="background: transparent; color: var(--slate-dark); border: 1px solid var(--border-light);">✕ Exit
                 Triage</a>
+            <button class="hamburger-btn" aria-label="Open Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <span class="sidebar-title">ANUBHUTI</span>
+            <button class="close-btn" id="close-sidebar">×</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="patient-education.html">Patient Education</a>
+                <ul class="sidebar-sublinks">
+                    <li><a href="patient-education.html#basics">• GI Basics</a></li>
+                    <li><a href="patient-education.html#conditions">• Disease Library</a></li>
+                    <li><a href="patient-education.html#procedures">• Procedures</a></li>
+                    <li><a href="patient-education.html#diet">• Diet & Lifestyle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Resources</a>
+                <ul class="sidebar-sublinks">
+                    <li><a href="patient-education.html#podcasts">• Podcasts</a></li>
+                    <li><a href="patient-education.html#videos">• Video Library</a></li>
+                    <li><a href="patient-education.html#downloads">• Toolkits & PDFs</a></li>
+                </ul>
+            </li>
+            <li><a href="symptom-checker.html" style="color: var(--med-blue);">Symptom Checker (Current)</a></li>
+            <li><a href="index.html#about-gi">About Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </aside>
 
     <div class="triage-container">
         <div class="triage-card" id="triage-card">
@@ -428,6 +468,7 @@
             document.getElementById('progress').style.width = '0%';
         }
     </script>
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>

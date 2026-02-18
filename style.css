@@ -172,20 +172,20 @@ h2.section-heading {
 .sidebar-menu {
     position: fixed;
     top: 0;
-    right: -320px;
+    left: -320px;
     width: 320px;
     height: 100vh;
     background: #fff;
     z-index: 2001;
     padding: 32px;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-    transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     display: flex;
     flex-direction: column;
 }
 
 .sidebar-menu.active {
-    right: 0;
+    left: 0;
 }
 
 .sidebar-header {
@@ -233,15 +233,7 @@ h2.section-heading {
 }
 
 /* Hamburger */
-.hamburger-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--slate-dark);
-    margin-left: 20px;
-}
+
 
 /* Responsive spacing adjustments */
 @media (max-width: 1024px) {
@@ -249,9 +241,7 @@ h2.section-heading {
         display: none;
     }
 
-    .hamburger-btn {
-        display: block;
-    }
+
 
     .navbar {
         padding: 16px 20px;
@@ -297,10 +287,23 @@ h2.section-heading {
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
     color: var(--slate-dark);
-    margin-left: 20px;
+    margin-left: 16px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.hamburger-btn:hover {
+    background: var(--bg-soft-blue);
+    color: var(--med-blue);
+}
+
+.hamburger-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
 }
 
 @media (max-width: 1024px) {
@@ -310,7 +313,9 @@ h2.section-heading {
     }
 
     .hamburger-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .navbar {
@@ -1324,9 +1329,7 @@ section:nth-child(even) {
         display: none !important;
     }
 
-    .hamburger-btn {
-        display: block !important;
-    }
+
 
     .nav-left {
         gap: 0 !important;
